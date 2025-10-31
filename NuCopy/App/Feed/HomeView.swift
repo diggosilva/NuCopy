@@ -12,10 +12,12 @@ class HomeView: UIView {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        
+        layout.minimumLineSpacing = 0
+                
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        cv.register(HeaderTopCell.self, forCellWithReuseIdentifier: HeaderTopCell.identifier)
+        cv.register(HeaderBottomCell.self, forCellWithReuseIdentifier: HeaderBottomCell.identifier)
         return cv
     }()
     
