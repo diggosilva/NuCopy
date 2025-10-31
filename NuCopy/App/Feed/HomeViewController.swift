@@ -17,25 +17,46 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.5099446177, green: 0.03479245678, blue: 0.8188650012, alpha: 1)
-        configureDelegatesAndDataSources()
+        view.backgroundColor = .roxinho
+        configureDataSourcesAndDelegates()
     }
     
-    private func configureDelegatesAndDataSources() {
+    private func configureDataSourcesAndDelegates() {
         homeView.collectionView.delegate = self
         homeView.collectionView.dataSource = self
     }
-
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .red
-        return cell
+        if indexPath.item == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderTopCell.identifier, for: indexPath) as? HeaderTopCell else { return UICollectionViewCell() }
+            return cell
+        }
+        
+        if indexPath.item == 1 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderBottomCell.identifier, for: indexPath) as? HeaderBottomCell else { return UICollectionViewCell() }
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item == 0 {
+            return CGSize(width: view.frame.width, height: 50)
+        }
+        
+        if indexPath.item == 1 {
+            return CGSize(width: view.frame.width, height: 50)
+        }
+        
+        return .zero
     }
 }
