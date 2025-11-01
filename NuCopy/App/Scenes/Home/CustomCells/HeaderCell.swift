@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HeaderCell: UICollectionViewCell {
+final class HeaderCell: UITableViewCell {
     
     static let identifier: String = "HeaderCell"
     
@@ -52,8 +52,8 @@ final class HeaderCell: UICollectionViewCell {
         return sv
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
     }
     
