@@ -8,7 +8,7 @@
 import UIKit
 
 enum HomeCell {
-    case header
+    case header(HeaderCellModel)
     case name
     case account
     
