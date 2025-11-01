@@ -10,7 +10,18 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private let homeView = HomeView()
-    private let cellItems: [HomeCell] = [.header, .name, .account]
+    private let items: [HomeCell] = [
+        .header(
+            HeaderCellModel(
+                image: UIImage(systemName: "person.crop.circle"),
+                onEyeTapped: { print("eye tapped") },
+                onHelpTapped: { print("help tapped") },
+                onVerifyTapped: { print("verify tapped") }
+            ),
+        ),
+        .name,
+        .account
+    ]
     
     override func loadView() {
         view = homeView
@@ -30,26 +41,26 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellItems.count
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellType = cellItems[indexPath.item]
+        let cellType = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier, for: indexPath)
-                
-        switch cellType {
-        case .header:
-            guard let headerCell = cell as? HeaderCell else { return UITableViewCell() }
-            return headerCell
-            
-        case .name:
-            guard let nameCell = cell as? NameCell else { return UITableViewCell() }
-            return nameCell
         
+        switch cellType {
+        
+        case .header(let model):
+            model.configure(cell)
+            return cell
+
+        case .name:
+            break
+            
         case .account:
-            guard let accountCell = cell as? AccountCell else { return UITableViewCell() }
-            return accountCell
+            break
         }
+        return cell
     }
 }
 
