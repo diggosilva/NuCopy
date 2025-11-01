@@ -10,11 +10,13 @@ import UIKit
 enum HomeCell {
     case header
     case name
+    case account
     
     var cellIdentifier: String {
         switch self {
         case .header: return HeaderCell.identifier
         case .name: return NameCell.identifier
+        case .account: return AccountCell.identifier
         }
     }
 }
