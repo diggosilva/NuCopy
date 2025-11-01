@@ -12,9 +12,9 @@ class HomeView: UIView {
     lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.register(HeaderCell.self, forCellReuseIdentifier: HomeCell.header.cellIdentifier)
-        tv.register(NameCell.self, forCellReuseIdentifier: HomeCell.name.cellIdentifier)
-        tv.register(AccountCell.self, forCellReuseIdentifier: HomeCell.account.cellIdentifier)
+        tv.register(HeaderCell.self, forCellReuseIdentifier: HeaderCell.identifier)
+        tv.register(NameCell.self, forCellReuseIdentifier: NameCell.identifier)
+        tv.register(AccountCell.self, forCellReuseIdentifier: AccountCell.identifier)
         tv.separatorStyle = .none
         return tv
     }()
