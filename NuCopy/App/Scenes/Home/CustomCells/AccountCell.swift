@@ -89,7 +89,3 @@ class AccountCell: UITableViewCell {
         ])
     }
 }
-
-#Preview {
-    AccountCell()
-}

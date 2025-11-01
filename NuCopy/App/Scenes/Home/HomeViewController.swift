@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private let homeView = HomeView()
-    private let cellItems: [HomeCell] = [.header, .name]
+    private let cellItems: [HomeCell] = [.header, .name, .account]
     
     override func loadView() {
         view = homeView
@@ -23,43 +23,38 @@ class HomeViewController: UIViewController {
     }
     
     private func configureDataSourcesAndDelegates() {
-        homeView.collectionView.delegate = self
-        homeView.collectionView.dataSource = self
+        homeView.tableView.delegate = self
+        homeView.tableView.dataSource = self
     }
 }
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellItems.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellType = cellItems[indexPath.item]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.cellIdentifier, for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier, for: indexPath)
+                
         switch cellType {
         case .header:
-            guard let headerTopCell = cell as? HeaderCell else { return UICollectionViewCell() }
-            return headerTopCell
+            guard let headerCell = cell as? HeaderCell else { return UITableViewCell() }
+            return headerCell
             
         case .name:
-            guard let headerBottomCell = cell as? NameCell else { return UICollectionViewCell() }
-            return headerBottomCell
+            guard let nameCell = cell as? NameCell else { return UITableViewCell() }
+            return nameCell
+        
+        case .account:
+            guard let accountCell = cell as? AccountCell else { return UITableViewCell() }
+            return accountCell
         }
     }
 }
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellType = cellItems[indexPath.item]
-        let width = collectionView.frame.width
-        
-        switch cellType {
-        case .header:
-            return CGSize(width: width, height: 50)
-            
-        case .name:
-            return CGSize(width: width, height: 50)
-        }
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
