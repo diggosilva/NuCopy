@@ -16,8 +16,8 @@ class HomeView: UIView {
                 
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(HeaderTopCell.self, forCellWithReuseIdentifier: HeaderTopCell.identifier)
-        cv.register(HeaderBottomCell.self, forCellWithReuseIdentifier: HeaderBottomCell.identifier)
+        cv.register(HeaderCell.self, forCellWithReuseIdentifier: HomeCell.header.cellIdentifier)
+        cv.register(NameCell.self, forCellWithReuseIdentifier: HomeCell.name.cellIdentifier)
         return cv
     }()
     

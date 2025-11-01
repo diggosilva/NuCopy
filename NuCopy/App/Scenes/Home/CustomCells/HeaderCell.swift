@@ -1,5 +1,5 @@
 //
-//  HeaderTopCell.swift
+//  HeaderCell.swift
 //  NuCopy
 //
 //  Created by Diggo Silva on 31/10/25.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class HeaderTopCell: UICollectionViewCell {
+final class HeaderCell: UICollectionViewCell {
     
-    static let identifier: String = "HeaderTopCell"
+    static let identifier: String = "HeaderCell"
     
     lazy var photoImageView: UIImageView = {
         let iv = UIImageView()
@@ -17,6 +17,7 @@ final class HeaderTopCell: UICollectionViewCell {
         iv.contentMode = .scaleAspectFit
         iv.image = UIImage(systemName: "person.crop.circle")
         iv.clipsToBounds = true
+        iv.tintColor = .white
         return iv
     }()
     
@@ -47,6 +48,7 @@ final class HeaderTopCell: UICollectionViewCell {
         sv.axis = .horizontal
         sv.distribution = .fillEqually
         sv.spacing = 16
+        sv.tintColor = .white
         return sv
     }()
     
@@ -66,8 +68,6 @@ final class HeaderTopCell: UICollectionViewCell {
         contentView.addSubview(photoImageView)
         contentView.addSubview(HStack)
         contentView.backgroundColor = .roxinho
-        photoImageView.tintColor = .white
-        HStack.tintColor = .white
     }
     
     private func setConstraints() {
@@ -76,7 +76,7 @@ final class HeaderTopCell: UICollectionViewCell {
             photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             photoImageView.widthAnchor.constraint(equalToConstant: 50),
-            photoImageView.heightAnchor.constraint(equalToConstant: 50),
+            photoImageView.heightAnchor.constraint(equalTo: photoImageView.widthAnchor),
             
             HStack.centerYAnchor.constraint(equalTo: photoImageView.centerYAnchor),
             HStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),

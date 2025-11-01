@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private let homeView = HomeView()
+    private let cellItems: [HomeCell] = [.header, .name]
     
     override func loadView() {
         view = homeView
@@ -29,34 +30,36 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return cellItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.item == 0 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderTopCell.identifier, for: indexPath) as? HeaderTopCell else { return UICollectionViewCell() }
-            return cell
-        }
+        let cellType = cellItems[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.cellIdentifier, for: indexPath)
         
-        if indexPath.item == 1 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderBottomCell.identifier, for: indexPath) as? HeaderBottomCell else { return UICollectionViewCell() }
-            return cell
+        switch cellType {
+        case .header:
+            guard let headerTopCell = cell as? HeaderCell else { return UICollectionViewCell() }
+            return headerTopCell
+            
+        case .name:
+            guard let headerBottomCell = cell as? NameCell else { return UICollectionViewCell() }
+            return headerBottomCell
         }
-        
-        return UICollectionViewCell()
     }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item == 0 {
-            return CGSize(width: view.frame.width, height: 50)
-        }
+        let cellType = cellItems[indexPath.item]
+        let width = collectionView.frame.width
         
-        if indexPath.item == 1 {
-            return CGSize(width: view.frame.width, height: 50)
+        switch cellType {
+        case .header:
+            return CGSize(width: width, height: 50)
+            
+        case .name:
+            return CGSize(width: width, height: 50)
         }
-        
-        return .zero
     }
 }

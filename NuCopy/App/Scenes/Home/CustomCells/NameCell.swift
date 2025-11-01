@@ -1,5 +1,5 @@
 //
-//  HeaderBottomCell.swift
+//  NameCell.swift
 //  NuCopy
 //
 //  Created by Diggo Silva on 31/10/25.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class HeaderBottomCell: UICollectionViewCell {
+final class NameCell: UICollectionViewCell {
     
-    static let identifier: String = "HeaderBottomCell"
+    static let identifier: String = "NameCell"
     
     lazy var grettingLabel: UILabel = {
         let label = UILabel()
