@@ -9,16 +9,14 @@ import UIKit
 
 class HomeView: UIView {
     
-    lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 0
-                
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(HeaderCell.self, forCellWithReuseIdentifier: HomeCell.header.cellIdentifier)
-        cv.register(NameCell.self, forCellWithReuseIdentifier: HomeCell.name.cellIdentifier)
-        return cv
+    lazy var tableView: UITableView = {
+        let tv = UITableView()
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.register(HeaderCell.self, forCellReuseIdentifier: HomeCell.header.cellIdentifier)
+        tv.register(NameCell.self, forCellReuseIdentifier: HomeCell.name.cellIdentifier)
+        tv.register(AccountCell.self, forCellReuseIdentifier: HomeCell.account.cellIdentifier)
+        tv.separatorStyle = .none
+        return tv
     }()
     
     override init(frame: CGRect) {
@@ -34,16 +32,16 @@ class HomeView: UIView {
     }
     
     private func setHierarchy() {
-        addSubview(collectionView)
+        addSubview(tableView)
         backgroundColor = .systemBackground
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }

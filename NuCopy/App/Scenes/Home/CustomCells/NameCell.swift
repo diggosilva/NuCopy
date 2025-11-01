@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class NameCell: UICollectionViewCell {
+final class NameCell: UITableViewCell {
     
     static let identifier: String = "NameCell"
     
@@ -20,8 +20,8 @@ final class NameCell: UICollectionViewCell {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
     }
     
