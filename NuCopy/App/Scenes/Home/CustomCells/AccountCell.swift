@@ -15,12 +15,11 @@ class AccountCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 24, weight: .regular)
-        label.text = "Conta"
         return label
     }()
     
     lazy var chevronImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "chevron.right"))
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .label
         imageView.contentMode = .scaleAspectFit
@@ -39,7 +38,6 @@ class AccountCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .subheadline)
-        label.text = "Uma conta completa, com função débito, sem tarifa de manutenção e que faz seu dinheiro render."
         label.textColor = .secondaryLabel
         label.numberOfLines = 0
         return label
@@ -49,7 +47,6 @@ class AccountCell: UITableViewCell {
         let label = PaddingLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .headline)
-        label.text = "Conhecer"
         label.textColor = .white
         label.backgroundColor = .roxinho
         label.layer.cornerRadius = 18

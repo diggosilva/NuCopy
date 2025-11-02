@@ -22,7 +22,14 @@ class HomeViewController: UIViewController {
         .name(
             NameCellModel(username: "John Doe")
         ),
-        .account
+        .account(
+            AccountCellModel(
+                titleLabel: "Conta",
+                chevronImageView: UIImage(systemName: "chevron.right"),
+                descriptionLabel: "Uma conta completa, com função débito, sem tarifa de manutenção e que faz seu dinheiro render.",
+                buttonLabel: "Conhecer"
+            )
+        )
     ]
     
     override func loadView() {
@@ -60,10 +67,10 @@ extension HomeViewController: UITableViewDataSource {
             model.configure(cell)
             return cell
             
-        case .account:
-            break
+        case .account(let model):
+            model.configure(cell)
+            return cell
         }
-        return cell
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 enum HomeCell {
     case header(HeaderCellModel)
     case name(NameCellModel)
-    case account
+    case account(AccountCellModel)
     
     var cellIdentifier: String {
         switch self {
