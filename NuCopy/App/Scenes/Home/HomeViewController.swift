@@ -19,7 +19,9 @@ class HomeViewController: UIViewController {
                 onVerifyTapped: { print("verify tapped") }
             ),
         ),
-        .name,
+        .name(
+            NameCellModel(username: "John Doe")
+        ),
         .account
     ]
     
@@ -54,8 +56,9 @@ extension HomeViewController: UITableViewDataSource {
             model.configure(cell)
             return cell
 
-        case .name:
-            break
+        case .name(let model):
+            model.configure(cell)
+            return cell
             
         case .account:
             break
