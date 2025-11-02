@@ -10,27 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private let homeView = HomeView()
-    private let items: [HomeCell] = [
-        .header(
-            HeaderCellModel(
-                image: UIImage(systemName: "person.crop.circle"),
-                onEyeTapped: { print("eye tapped") },
-                onHelpTapped: { print("help tapped") },
-                onVerifyTapped: { print("verify tapped") }
-            ),
-        ),
-        .name(
-            NameCellModel(username: "John Doe")
-        ),
-        .account(
-            AccountCellModel(
-                titleLabel: "Conta",
-                chevronImageView: UIImage(systemName: "chevron.right"),
-                descriptionLabel: "Uma conta completa, com função débito, sem tarifa de manutenção e que faz seu dinheiro render.",
-                buttonLabel: "Conhecer"
-            )
-        )
-    ]
+    private let viewModel = HomeViewModel()
     
     override func loadView() {
         view = homeView
@@ -50,11 +30,11 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return viewModel.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellType = items[indexPath.row]
+        let cellType = viewModel.cellModelForRow(at: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier, for: indexPath)
         
         switch cellType {
