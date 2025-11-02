@@ -15,7 +15,7 @@ protocol CellModelProtocol {
 
 struct HeaderCellModel: CellModelProtocol {
     
-    let image: UIImage?
+    let imageSystemName: String
     let onEyeTapped: (() -> Void)?
     let onHelpTapped: (() -> Void)?
     let onVerifyTapped: (() -> Void)?
@@ -25,10 +25,10 @@ struct HeaderCellModel: CellModelProtocol {
     
     func configure(_ cell: UITableViewCell) {
         guard let cell = cell as? HeaderCell else { return }
-        cell.photoImageView.image = image
+        cell.photoImageView.image = UIImage(systemName: imageSystemName)
         
         cell.eyeButton.addAction(UIAction { _ in onEyeTapped?() }, for: .touchUpInside)
         cell.helpButton.addAction(UIAction { _ in onHelpTapped?() } , for: .touchUpInside)
         cell.verifyButton.addAction(UIAction { _ in onVerifyTapped?() }, for: .touchUpInside)
-    }   
+    }
 }
