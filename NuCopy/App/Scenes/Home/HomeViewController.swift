@@ -7,33 +7,31 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewTableController: UITableViewController {
     
-    private let homeView = HomeView()
+    
     private let viewModel = HomeViewModel()
-    
-    override func loadView() {
-        view = homeView
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .roxinho
-        configureDataSourcesAndDelegates()
+        configureTableView()
     }
     
-    private func configureDataSourcesAndDelegates() {
-        homeView.tableView.delegate = self
-        homeView.tableView.dataSource = self
+    private func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(HeaderCell.self, forCellReuseIdentifier: HeaderCell.identifier)
+        tableView.register(NameCell.self, forCellReuseIdentifier: NameCell.identifier)
+        tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.identifier)
+        tableView.separatorStyle = .none
     }
-}
-
-extension HomeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellType = viewModel.cellModelForRow(at: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier, for: indexPath)
         
@@ -51,10 +49,8 @@ extension HomeViewController: UITableViewDataSource {
             return cell
         }
     }
-}
-
-extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let cellType = viewModel.cellModelForRow(at: indexPath.row)
@@ -70,7 +66,7 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-extension HomeViewController: CellCommonActionsDelegate {
+extension HomeViewTableController: CellCommonActionsDelegate {
     func didTapEyeButton(in cell: HeaderCell) {
         print("Eye button tapped")
     }
