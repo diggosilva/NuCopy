@@ -17,10 +17,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     private let items: [HomeCell] = [
         .header(
             HeaderCellModel(
-                imageSystemName: "person.crop.circle",
-                onEyeTapped: { print("eye tapped") },
-                onHelpTapped: { print("help tapped") },
-                onVerifyTapped: { print("verify tapped") }
+                imageSystemName: "person.crop.circle"
             )
         ),
         .name(
