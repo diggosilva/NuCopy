@@ -21,7 +21,7 @@ final class HomeViewModel: HomeViewModelProtocol {
             )
         ),
         .name(
-            NameCellModel(username: "John Doe")
+            NameCellModel(username: "John")
         ),
         .account(
             AccountCellModel(
