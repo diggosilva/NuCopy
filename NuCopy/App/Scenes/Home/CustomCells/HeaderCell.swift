@@ -11,6 +11,8 @@ final class HeaderCell: UITableViewCell {
     
     static let identifier: String = "HeaderCell"
     
+    weak var delegate: CellCommonActionsDelegate?
+    
     lazy var photoImageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +64,25 @@ final class HeaderCell: UITableViewCell {
     private func setupView() {
         setHierarchy()
         setConstraints()
+        setupActions()
+    }
+    
+    func setupActions() {
+        eyeButton.addTarget(self, action: #selector(eyeTapped), for: .touchUpInside)
+        helpButton.addTarget(self, action: #selector(helpTapped), for: .touchUpInside)
+        verifyButton.addTarget(self, action: #selector(verifyTapped), for: .touchUpInside)
+    }
+    
+    @objc private func eyeTapped() {
+        delegate?.didTapEyeButton(in: self)
+    }
+    
+    @objc private func helpTapped() {
+        delegate?.didTapHelpButton(in: self)
+    }
+    
+    @objc private func verifyTapped() {
+        delegate?.didTapVerifyButton(in: self)
     }
     
     private func setHierarchy() {

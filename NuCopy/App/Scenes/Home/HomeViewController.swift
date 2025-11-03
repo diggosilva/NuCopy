@@ -38,17 +38,16 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier, for: indexPath)
         
         switch cellType {
-        
         case .header(let model):
-            model.configure(cell)
+            model.configure(cell, delegate: self)
             return cell
 
         case .name(let model):
-            model.configure(cell)
+            model.configure(cell, delegate: self)
             return cell
             
         case .account(let model):
-            model.configure(cell)
+            model.configure(cell, delegate: self)
             return cell
         }
     }
@@ -57,5 +56,30 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cellType = viewModel.cellModelForRow(at: indexPath.row)
+        
+        switch cellType {
+        case .header(_):
+            print("Header tapped")
+        case .name(_):
+            print("Name tapped")
+        case .account(_):
+            print("Account tapped")
+        }
+    }
+}
+
+extension HomeViewController: CellCommonActionsDelegate {
+    func didTapEyeButton(in cell: HeaderCell) {
+        print("Eye button tapped")
+    }
+    
+    func didTapHelpButton(in cell: HeaderCell) {
+        print("Help button tapped")
+    }
+    
+    func didTapVerifyButton(in cell: HeaderCell) {
+        print("Verify button tapped")
     }
 }

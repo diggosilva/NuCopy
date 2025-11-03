@@ -17,7 +17,7 @@ struct AccountCellModel: CellModelProtocol {
     var cellIdentifier: String { AccountCell.identifier }
     var cellHeight: CGFloat { 60 }
     
-    func configure(_ cell: UITableViewCell) {
+    func configure(_ cell: UITableViewCell, delegate: CellCommonActionsDelegate?) {
         guard let cell = cell as? AccountCell else { return }
         cell.titleLabel.text = titleLabel
         cell.chevronImageView.image = UIImage(systemName: chevronSystemName)
