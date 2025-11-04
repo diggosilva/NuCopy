@@ -10,6 +10,7 @@ import UIKit
 struct ShortcutItemModel {
     let imageName: String
     let title: String
+    let loanValue: String?
 }
 
 struct ShortcutCellModel: CellModelProtocol {

@@ -33,10 +33,10 @@ final class HomeViewModel: HomeViewModelProtocol {
         ),
         .shortcuts(
             ShortcutCellModel(shortcuts: [
-                ShortcutItemModel(imageName: SFSymbols.squareGrid2x2, title: "Área Pix e Transferir"),
-                ShortcutItemModel(imageName: SFSymbols.barcode, title: "Pagar"),
-                ShortcutItemModel(imageName: SFSymbols.dollarSign, title: "Pegar emprestado"),
-                ShortcutItemModel(imageName: SFSymbols.smartphone, title: "Recarga de celular"),
+                ShortcutItemModel(imageName: SFSymbols.squareGrid2x2, title: "Área Pix e Transferir", loanValue: nil),
+                ShortcutItemModel(imageName: SFSymbols.barcode, title: "Pagar", loanValue: nil),
+                ShortcutItemModel(imageName: SFSymbols.dollarSign, title: "Pegar emprestado", loanValue: "R$10.000"),
+                ShortcutItemModel(imageName: SFSymbols.smartphone, title: "Recarga de celular", loanValue: nil),
             ])
         )
     ]

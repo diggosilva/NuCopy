@@ -43,7 +43,6 @@ final class ShortcutCollectionCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .monospacedDigitSystemFont(ofSize: 10, weight: .bold)
-        label.text = "R$10.000"
         label.textAlignment = .center
         label.textColor = .white
         label.backgroundColor = .roxinho
@@ -113,6 +112,11 @@ final class ShortcutCollectionCell: UICollectionViewCell {
         
         if shortcutImageView.image == UIImage(systemName: "dollarsign.circle") {
             loanAmountLabel.isHidden = false
+            if model.loanValue != nil {
+                loanAmountLabel.text = model.loanValue
+            } else {
+                loanAmountLabel.text = "•••"
+            }
         } else {
             loanAmountLabel.isHidden = true
         }
