@@ -17,7 +17,7 @@ final class HeaderCell: UITableViewCell {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFit
-        iv.image = UIImage(systemName: "person.crop.circle")
+        iv.image = UIImage(systemName: SFSymbols.profileImage)
         iv.clipsToBounds = true
         iv.tintColor = .white
         return iv
@@ -33,14 +33,14 @@ final class HeaderCell: UITableViewCell {
     lazy var helpButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
+        button.setImage(UIImage(systemName: SFSymbols.questionmarkCircle), for: .normal)
         return button
     }()
     
     lazy var verifyButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "checkmark.shield"), for: .normal)
+        button.setImage(UIImage(systemName: SFSymbols.checkmarkShield), for: .normal)
         return button
     }()
     
