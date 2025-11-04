@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewTableController.swift
 //  NuCopy
 //
 //  Created by Diggo Silva on 30/10/25.
@@ -24,6 +24,7 @@ class HomeViewTableController: UITableViewController {
         tableView.register(HeaderCell.self, forCellReuseIdentifier: HeaderCell.identifier)
         tableView.register(NameCell.self, forCellReuseIdentifier: NameCell.identifier)
         tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.identifier)
+        tableView.register(ShortcutTableCell.self, forCellReuseIdentifier: ShortcutTableCell.identifier)
         tableView.separatorStyle = .none
     }
     
@@ -47,6 +48,9 @@ class HomeViewTableController: UITableViewController {
         case .account(let model):
             model.configure(cell, delegate: self)
             return cell
+        case .shortcuts(let model):
+            model.configure(cell, delegate: self)
+            return cell
         }
     }
     
@@ -62,6 +66,8 @@ class HomeViewTableController: UITableViewController {
             print("Name tapped")
         case .account(_):
             print("Account tapped")
+        case .shortcuts(_):
+            print("TABLE CELL tapped")
         }
     }
 }
