@@ -72,7 +72,7 @@ class AccountCell: UITableViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            HStack.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            HStack.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             HStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             HStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
             
@@ -82,7 +82,7 @@ class AccountCell: UITableViewCell {
             
             buttonLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
             buttonLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
-            buttonLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24),
+            buttonLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
         ])
     }
 }

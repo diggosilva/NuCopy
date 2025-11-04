@@ -30,6 +30,14 @@ final class HomeViewModel: HomeViewModelProtocol {
                 descriptionLabel: "Uma conta completa, com função débito, sem tarifa de manutenção e que faz seu dinheiro render.",
                 buttonLabel: "Conhecer"
             )
+        ),
+        .shortcuts(
+            ShortcutCellModel(shortcuts: [
+                ShortcutItemModel(imageName: "square.grid.2x2", title: "Área Pix e Transferir"),
+                ShortcutItemModel(imageName: "barcode", title: "Pagar"),
+                ShortcutItemModel(imageName: "dollarsign.circle", title: "Pegar emprestado"),
+                ShortcutItemModel(imageName: "smartphone", title: "Recarga de celular"),
+            ])
         )
     ]
     

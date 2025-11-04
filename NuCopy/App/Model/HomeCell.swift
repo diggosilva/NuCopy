@@ -11,12 +11,14 @@ enum HomeCell {
     case header(HeaderCellModel)
     case name(NameCellModel)
     case account(AccountCellModel)
+    case shortcuts(ShortcutCellModel)
     
     var cellIdentifier: String {
         switch self {
         case .header: return HeaderCell.identifier
         case .name: return NameCell.identifier
         case .account: return AccountCell.identifier
+        case .shortcuts: return ShortcutTableCell.identifier
         }
     }
 }
