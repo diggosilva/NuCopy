@@ -17,7 +17,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     private let items: [HomeCell] = [
         .header(
             HeaderCellModel(
-                imageSystemName: "person.crop.circle"
+                imageSystemName: SFSymbols.profileImage
             )
         ),
         .name(
@@ -26,17 +26,17 @@ final class HomeViewModel: HomeViewModelProtocol {
         .account(
             AccountCellModel(
                 titleLabel: "Conta",
-                chevronSystemName: "chevron.right",
+                chevronSystemName: SFSymbols.chevronRight,
                 descriptionLabel: "Uma conta completa, com função débito, sem tarifa de manutenção e que faz seu dinheiro render.",
                 buttonLabel: "Conhecer"
             )
         ),
         .shortcuts(
             ShortcutCellModel(shortcuts: [
-                ShortcutItemModel(imageName: "square.grid.2x2", title: "Área Pix e Transferir"),
-                ShortcutItemModel(imageName: "barcode", title: "Pagar"),
-                ShortcutItemModel(imageName: "dollarsign.circle", title: "Pegar emprestado"),
-                ShortcutItemModel(imageName: "smartphone", title: "Recarga de celular"),
+                ShortcutItemModel(imageName: SFSymbols.squareGrid2x2, title: "Área Pix e Transferir"),
+                ShortcutItemModel(imageName: SFSymbols.barcode, title: "Pagar"),
+                ShortcutItemModel(imageName: SFSymbols.dollarSign, title: "Pegar emprestado"),
+                ShortcutItemModel(imageName: SFSymbols.smartphone, title: "Recarga de celular"),
             ])
         )
     ]

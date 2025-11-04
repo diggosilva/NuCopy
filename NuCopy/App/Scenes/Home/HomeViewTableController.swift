@@ -9,7 +9,6 @@ import UIKit
 
 class HomeViewTableController: UITableViewController {
     
-    
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {

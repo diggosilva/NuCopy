@@ -16,7 +16,6 @@ final class NameCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         label.textColor = .white
-        label.text = "Olá, John"
         return label
     }()
     
