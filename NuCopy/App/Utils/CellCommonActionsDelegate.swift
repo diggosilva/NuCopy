@@ -11,4 +11,6 @@ protocol CellCommonActionsDelegate: AnyObject {
     func didTapEyeButton(in cell: HeaderCell)
     func didTapHelpButton(in cell: HeaderCell)
     func didTapVerifyButton(in cell: HeaderCell)
+    
+    func didSelectShortcut(in cell: ShortcutTableCell, at indexPath: IndexPath)
 }

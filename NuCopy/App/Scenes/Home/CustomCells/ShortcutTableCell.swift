@@ -11,6 +11,8 @@ final class ShortcutTableCell: UITableViewCell {
     
     static let identifier: String = "ShortcutTableCell"
     
+    weak var delegate: CellCommonActionsDelegate?
+    
     private var shortcuts: [ShortcutItemModel] = []
     
     private lazy var collectionView: UICollectionView = {
@@ -80,6 +82,6 @@ extension ShortcutTableCell: UICollectionViewDataSource {
 
 extension ShortcutTableCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Shortcuts \(indexPath.item + 1) tapped")
+        delegate?.didSelectShortcut(in: self, at: indexPath)
     }
 }

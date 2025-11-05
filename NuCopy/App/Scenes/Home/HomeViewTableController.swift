@@ -48,7 +48,10 @@ class HomeViewTableController: UITableViewController {
             model.configure(cell, delegate: self)
             return cell
         case .shortcuts(let model):
-            model.configure(cell, delegate: self)
+            if let shortcutCell = cell as? ShortcutTableCell {
+                shortcutCell.configure(with: model.shortcuts)
+                shortcutCell.delegate = self
+            }
             return cell
         }
     }
@@ -82,5 +85,9 @@ extension HomeViewTableController: CellCommonActionsDelegate {
     
     func didTapVerifyButton(in cell: HeaderCell) {
         print("Verify button tapped")
+    }
+    
+    func didSelectShortcut(in cell: ShortcutTableCell, at indexPath: IndexPath) {
+        print("Item \(indexPath.item) da Collection tocado na célula \(tableView.indexPath(for: cell)?.row ?? 0)")
     }
 }
