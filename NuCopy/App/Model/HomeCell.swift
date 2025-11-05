@@ -12,6 +12,7 @@ enum HomeCell {
     case name(NameCellModel)
     case account(AccountCellModel)
     case shortcuts(ShortcutCellModel)
+    case extraMoney(ExtraMoneyCellModel)
     
     var cellIdentifier: String {
         switch self {
@@ -19,6 +20,7 @@ enum HomeCell {
         case .name: return NameCell.identifier
         case .account: return AccountCell.identifier
         case .shortcuts: return ShortcutTableCell.identifier
+        case .extraMoney: return ExtraMoneyCell.identifier
         }
     }
 }
