@@ -24,6 +24,7 @@ class HomeViewTableController: UITableViewController {
         tableView.register(NameCell.self, forCellReuseIdentifier: NameCell.identifier)
         tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.identifier)
         tableView.register(ShortcutTableCell.self, forCellReuseIdentifier: ShortcutTableCell.identifier)
+        tableView.register(ExtraMoneyCell.self, forCellReuseIdentifier: ExtraMoneyCell.identifier)
         tableView.separatorStyle = .none
     }
     
@@ -47,11 +48,16 @@ class HomeViewTableController: UITableViewController {
         case .account(let model):
             model.configure(cell, delegate: self)
             return cell
+            
         case .shortcuts(let model):
             if let shortcutCell = cell as? ShortcutTableCell {
                 shortcutCell.configure(with: model.shortcuts)
                 shortcutCell.delegate = self
             }
+            return cell
+            
+        case .extraMoney(let model):
+            model.configure(cell, delegate: self)
             return cell
         }
     }
@@ -64,12 +70,18 @@ class HomeViewTableController: UITableViewController {
         switch cellType {
         case .header(_):
             print("Header tapped")
+            
         case .name(_):
             print("Name tapped")
+            
         case .account(_):
             print("Account tapped")
+            
         case .shortcuts(_):
             print("TABLE CELL tapped")
+            
+        case .extraMoney(_):
+            print("Extra Money tapped")
         }
     }
 }
