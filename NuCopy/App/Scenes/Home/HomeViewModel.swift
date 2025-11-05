@@ -38,6 +38,14 @@ final class HomeViewModel: HomeViewModelProtocol {
                 ShortcutItemModel(imageName: SFSymbols.dollarSign, title: "Pegar emprestado", loanValue: "R$10.000"),
                 ShortcutItemModel(imageName: SFSymbols.smartphone, title: "Recarga de celular", loanValue: nil),
             ])
+        ),
+        .extraMoney(
+            ExtraMoneyCellModel(
+                moneyImageSystemName: SFSymbols.banknote,
+                titleLabel: "Dinheiro adicional",
+                descriptionLabel: "Opções de crédito disponível",
+                chevronSystemName: SFSymbols.chevronRight,
+            )
         )
     ]
     

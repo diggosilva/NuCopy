@@ -14,7 +14,6 @@ final class ShortcutCollectionCell: UICollectionViewCell {
     lazy var shortcutBGImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.tintColor = .label
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 40
         imageView.backgroundColor = .systemGray5
