@@ -43,4 +43,8 @@ final class NameCell: UITableViewCell {
             grettingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
         ])
     }
+    
+    func configure(model: NameCellModel) {
+        grettingLabel.text = model.username
+    }
 }
