@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct AccountCellModel: CellModelProtocol {
+struct AccountCellModel {
     
     let titleLabel: String
     let chevronSystemName: String
@@ -16,12 +16,4 @@ struct AccountCellModel: CellModelProtocol {
     
     var cellIdentifier: String { AccountCell.identifier }
     var cellHeight: CGFloat { 60 }
-    
-    func configure(_ cell: UITableViewCell, delegate: CellCommonActionsDelegate?) {
-        guard let cell = cell as? AccountCell else { return }
-        cell.titleLabel.text = titleLabel
-        cell.chevronImageView.image = UIImage(systemName: chevronSystemName)
-        cell.descriptionLabel.text = descriptionLabel
-        cell.buttonLabel.text = buttonLabel
-    }
 }

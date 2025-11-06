@@ -85,4 +85,11 @@ class AccountCell: UITableViewCell {
             buttonLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
         ])
     }
+    
+    func configure(with model: AccountCellModel) {
+        titleLabel.text = model.titleLabel
+        chevronImageView.image = UIImage(systemName: model.chevronSystemName)
+        descriptionLabel.text = model.descriptionLabel
+        buttonLabel.text = model.buttonLabel
+    }
 }

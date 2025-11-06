@@ -38,15 +38,22 @@ class HomeViewTableController: UITableViewController {
         
         switch cellType {
         case .header(let model):
-            model.configure(cell, delegate: self)
+            if let headerCell = cell as? HeaderCell {
+                headerCell.configure(model: model)
+                headerCell.delegate = self
+            }
             return cell
 
         case .name(let model):
-            model.configure(cell, delegate: self)
+            if let nameCell = cell as? NameCell {
+                nameCell.configure(model: model)
+            }
             return cell
             
         case .account(let model):
-            model.configure(cell, delegate: self)
+            if let accountCell = cell as? AccountCell {
+                accountCell.configure(with: model)
+            }
             return cell
             
         case .shortcuts(let model):
@@ -57,7 +64,9 @@ class HomeViewTableController: UITableViewController {
             return cell
             
         case .extraMoney(let model):
-            model.configure(cell, delegate: self)
+            if let extraMoneyCell = cell as? ExtraMoneyCell {
+                extraMoneyCell.configure(model: model)
+            }
             return cell
         }
     }
