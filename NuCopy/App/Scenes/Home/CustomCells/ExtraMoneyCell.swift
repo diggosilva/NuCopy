@@ -107,6 +107,12 @@ final class ExtraMoneyCell: UITableViewCell {
         ])
     }
     
+    func configure(model: ExtraMoneyCellModel) {
+        moneyImageView.image = UIImage(systemName: model.moneyImageSystemName)
+        titleLabel.text = model.titleLabel
+        descriptionLabel.text = model.descriptionLabel
+    }
+    
     // MARK: - Custom highlight behavior
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
