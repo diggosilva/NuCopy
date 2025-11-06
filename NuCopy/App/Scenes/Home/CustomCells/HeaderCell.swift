@@ -26,7 +26,7 @@ final class HeaderCell: UITableViewCell {
     lazy var eyeButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.setImage(UIImage(systemName: SFSymbols.eye), for: .normal)
         return button
     }()
     
@@ -103,5 +103,9 @@ final class HeaderCell: UITableViewCell {
             HStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             HStack.heightAnchor.constraint(equalToConstant: 40),
         ])
+    }
+    
+    func configure(model: HeaderCellModel) {
+        photoImageView.image = UIImage(systemName: model.imageSystemName)
     }
 }
