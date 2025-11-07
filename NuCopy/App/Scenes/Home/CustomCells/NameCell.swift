@@ -45,6 +45,6 @@ final class NameCell: UITableViewCell {
     }
     
     func configure(model: NameCellModel) {
-        grettingLabel.text = model.username
+        grettingLabel.text = "Olá, \(model.username)"
     }
 }
