@@ -13,4 +13,6 @@ protocol CellCommonActionsDelegate: AnyObject {
     func didTapVerifyButton(in cell: HeaderCell)
     
     func didSelectShortcut(in cell: ShortcutTableCell, at indexPath: IndexPath)
+    
+    func didSelectInvite(in cell: InviteCardTableCell, at indexPath: IndexPath)
 }
