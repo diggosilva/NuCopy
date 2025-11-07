@@ -17,5 +17,8 @@ struct SFSymbols {
     static let questionmarkCircle: String = "questionmark.circle"
     static let checkmarkShield: String = "checkmark.shield"
     static let banknote: String = "banknote"
-    static let eye : String = "eye"
+    static let eye: String = "eye"
+    static let shippingbox: String = "shippingbox"
+    static let listClipboard: String = "list.bullet.clipboard"
+    static let wallet: String = "wallet.bifold"
 }
