@@ -19,7 +19,6 @@ final class ShortcutTableCell: UITableViewCell {
         var layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
-        layout.itemSize = CGSize(width: 100, height: 140)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,5 +82,26 @@ extension ShortcutTableCell: UICollectionViewDataSource {
 extension ShortcutTableCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didSelectShortcut(in: self, at: indexPath)
+    }
+}
+
+extension ShortcutTableCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        // Largura total da collection view
+        let totalWidth = collectionView.bounds.width
+        
+        // Quantas células você quer mostrar por linha (4, por exemplo)
+        let numberOfItems: CGFloat = min(CGFloat(shortcuts.count), 4)
+        
+        // Espaçamento entre células
+        let spacing: CGFloat = 0
+        
+        // Calcula largura da célula para caber na tela
+        let width = (totalWidth - (numberOfItems - 1) * spacing) / numberOfItems
+        let height: CGFloat = 140
+        
+        return CGSize(width: width, height: height)
     }
 }
