@@ -25,6 +25,7 @@ class HomeViewTableController: UITableViewController {
         tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.identifier)
         tableView.register(ShortcutTableCell.self, forCellReuseIdentifier: ShortcutTableCell.identifier)
         tableView.register(ExtraMoneyCell.self, forCellReuseIdentifier: ExtraMoneyCell.identifier)
+        tableView.register(InviteCardTableCell.self, forCellReuseIdentifier: InviteCardTableCell.identifier)
         tableView.separatorStyle = .none
     }
     
@@ -68,6 +69,13 @@ class HomeViewTableController: UITableViewController {
                 extraMoneyCell.configure(model: model)
             }
             return cell
+            
+        case .invite(let model):
+            if let inviteCell = cell as? InviteCardTableCell {
+                inviteCell.configure(with: model.inviteItems)
+                inviteCell.delegate = self
+            }
+            return cell
         }
     }
     
@@ -91,6 +99,8 @@ class HomeViewTableController: UITableViewController {
             
         case .extraMoney(_):
             print("Extra Money tapped")
+        case .invite(_):
+            print("Invite tapped")
         }
     }
 }
@@ -109,6 +119,10 @@ extension HomeViewTableController: CellCommonActionsDelegate {
     }
     
     func didSelectShortcut(in cell: ShortcutTableCell, at indexPath: IndexPath) {
-        print("Item \(indexPath.item) da Collection tocado na célula \(tableView.indexPath(for: cell)?.row ?? 0)")
+        print("Shortcut \(indexPath.item) da Collection tocado na célula \(tableView.indexPath(for: cell)?.row ?? 0)")
+    }
+    
+    func didSelectInvite(in cell: InviteCardTableCell, at indexPath: IndexPath) {
+        print("Invite \(indexPath.item) da Collection tocado na célula \(tableView.indexPath(for: cell)?.row ?? 0)")
     }
 }
