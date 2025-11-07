@@ -46,6 +46,13 @@ final class HomeViewModel: HomeViewModelProtocol {
                 descriptionLabel: "Opções de crédito disponível",
                 chevronSystemName: SFSymbols.chevronRight,
             )
+        ),
+        .invite(
+            InviteCardCellModel(inviteItems: [
+                InviteItemModel(title: "*Facilite seus planos futuros:* guarde dinheiro nas Caixinhas", iconSystemName: SFSymbols.shippingbox),
+                InviteItemModel(title: "Pague *boletos no crédito* em até 12x direto pelo app", iconSystemName: SFSymbols.listClipboard),
+                InviteItemModel(title: "Adicione seu *cartão Nubank* nas carteiras digitais ", iconSystemName: SFSymbols.wallet),
+            ])
         )
     ]
     
