@@ -53,7 +53,10 @@ final class HomeViewModel: HomeViewModelProtocol {
                 InviteItemModel(title: "Pague *boletos no crédito* em até 12x direto pelo app", iconSystemName: SFSymbols.listClipboard),
                 InviteItemModel(title: "Adicione seu *cartão Nubank* nas carteiras digitais ", iconSystemName: SFSymbols.wallet),
             ])
-        )
+        ),
+        .divider(
+            DividerCellModel.init()
+        ),
     ]
     
     func numberOfRows() -> Int {

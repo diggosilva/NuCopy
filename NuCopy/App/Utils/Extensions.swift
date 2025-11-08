@@ -35,13 +35,13 @@ extension String {
         // Define os atributos básicos (parte normal)
         let baseAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: baseFontSize, weight: baseFontWeight),
-            .foregroundColor: UIColor.black
+            .foregroundColor: UIColor.label
         ]
         
         // Define os atributos para a parte em negrito
         let boldAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: baseFontSize, weight: boldFontWeight),
-            .foregroundColor: UIColor.black
+            .foregroundColor: UIColor.label
         ]
         
         // Aplica os atributos básicos em toda a string

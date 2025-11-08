@@ -26,6 +26,7 @@ class HomeViewTableController: UITableViewController {
         tableView.register(ShortcutTableCell.self, forCellReuseIdentifier: ShortcutTableCell.identifier)
         tableView.register(ExtraMoneyCell.self, forCellReuseIdentifier: ExtraMoneyCell.identifier)
         tableView.register(InviteCardTableCell.self, forCellReuseIdentifier: InviteCardTableCell.identifier)
+        tableView.register(DividerCell.self, forCellReuseIdentifier: DividerCell.identifier)
         tableView.separatorStyle = .none
     }
     
@@ -76,6 +77,12 @@ class HomeViewTableController: UITableViewController {
                 inviteCell.delegate = self
             }
             return cell
+            
+        case .divider(let model):
+            if let dividerCell = cell as? DividerCell {
+                dividerCell.configure(model: model)
+            }
+            return cell
         }
     }
     
@@ -99,8 +106,12 @@ class HomeViewTableController: UITableViewController {
             
         case .extraMoney(_):
             print("Extra Money tapped")
+        
         case .invite(_):
             print("Invite tapped")
+        
+        case .divider(_):
+            print("Division tapped")
         }
     }
 }
