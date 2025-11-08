@@ -12,19 +12,20 @@ final class DividerCell: UITableViewCell {
     static let identifier = "DividerCell"
     
     private let divider: UIView = {
-        let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = .systemGray5
-        return v
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemGray5
+        return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(divider)
         NSLayoutConstraint.activate([
-            divider.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            divider.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             divider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             divider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            divider.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             divider.heightAnchor.constraint(equalToConstant: 2)
         ])
         selectionStyle = .none
