@@ -32,7 +32,6 @@ final class ExtraMoneyCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .subheadline)
-        label.textColor = .label
         label.numberOfLines = 0
         return label
     }()
