@@ -103,13 +103,13 @@ final class ShortcutCollectionCell: UICollectionViewCell {
         shortcutLabel.text = model.title
         shortcutImageView.image = UIImage(systemName: model.imageName)
         
-        if shortcutImageView.image == UIImage(systemName: "square.grid.2x2") {
+        if shortcutImageView.image == UIImage(systemName: SFSymbols.squareGrid2x2) {
             shortcutImageView.transform = CGAffineTransform(rotationAngle: .pi / 4)
         } else {
             shortcutImageView.transform = .identity
         }
         
-        if shortcutImageView.image == UIImage(systemName: "dollarsign.circle") {
+        if shortcutImageView.image == UIImage(systemName: SFSymbols.dollarSign) {
             loanAmountLabel.isHidden = false
             if model.loanValue != nil {
                 loanAmountLabel.text = model.loanValue
