@@ -1,19 +1,20 @@
 //
-//  AccountCell.swift
+//  CreditCardCell.swift
 //  NuCopy
 //
-//  Created by Diggo Silva on 01/11/25.
+//  Created by Diggo Silva on 08/11/25.
 //
 
 import UIKit
 
-class AccountCell: UITableViewCell {
+final class CreditCardCell: UITableViewCell {
     
-    static let identifier: String = "AccountCell"
+    static let identifier: String = "CreditCardCell"
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .headline)
         label.font = .systemFont(ofSize: 20, weight: .regular)
         return label
     }()
@@ -34,23 +35,25 @@ class AccountCell: UITableViewCell {
         return stackView
     }()
     
-    lazy var descriptionLabel: UILabel = {
+    lazy var currentInvoiceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        return label
+    }()
+    
+    lazy var invoiceAmountLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .headline)
+        return label
+    }()
+    
+    lazy var availableLimitLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .subheadline)
         label.textColor = .secondaryLabel
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    lazy var buttonLabel: UILabel = {
-        let label = PaddingLabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .preferredFont(forTextStyle: .headline)
-        label.textColor = .white
-        label.backgroundColor = .roxinho
-        label.layer.cornerRadius = 18
-        label.clipsToBounds = true
         return label
     }()
     
@@ -67,29 +70,35 @@ class AccountCell: UITableViewCell {
     }
     
     private func setHierarchy() {
-        addSubviews(HStack, descriptionLabel, buttonLabel)
+        addSubviews(HStack, currentInvoiceLabel, invoiceAmountLabel, availableLimitLabel)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            HStack.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            HStack.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             HStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             HStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
             
-            descriptionLabel.topAnchor.constraint(equalTo: HStack.bottomAnchor, constant: 16),
-            descriptionLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: HStack.trailingAnchor),
+            currentInvoiceLabel.topAnchor.constraint(equalTo: HStack.bottomAnchor, constant: 16),
+            currentInvoiceLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
+            currentInvoiceLabel.trailingAnchor.constraint(equalTo: HStack.trailingAnchor),
             
-            buttonLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
-            buttonLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
-            buttonLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            invoiceAmountLabel.topAnchor.constraint(equalTo: currentInvoiceLabel.bottomAnchor, constant: 8),
+            invoiceAmountLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
+            invoiceAmountLabel.trailingAnchor.constraint(equalTo: HStack.trailingAnchor),
+            
+            availableLimitLabel.topAnchor.constraint(equalTo: invoiceAmountLabel.bottomAnchor, constant: 16),
+            availableLimitLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
+            availableLimitLabel.trailingAnchor.constraint(equalTo: HStack.trailingAnchor),
+            availableLimitLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
         ])
     }
     
-    func configure(with model: AccountCellModel) {
+    func configure(with model: CreditCardCellModel) {
         titleLabel.text = model.titleLabel
         chevronImageView.image = UIImage(systemName: model.chevronSystemName)
-        descriptionLabel.text = model.descriptionLabel
-        buttonLabel.text = model.buttonLabel
+        currentInvoiceLabel.text = model.currentInvoiceLabel
+        invoiceAmountLabel.text = model.invoiceAmountLabel
+        availableLimitLabel.text = model.availableLimitLabel
     }
 }

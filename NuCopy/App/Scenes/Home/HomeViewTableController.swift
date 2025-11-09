@@ -27,6 +27,7 @@ class HomeViewTableController: UITableViewController {
         tableView.register(ExtraMoneyCell.self, forCellReuseIdentifier: ExtraMoneyCell.identifier)
         tableView.register(InviteCardTableCell.self, forCellReuseIdentifier: InviteCardTableCell.identifier)
         tableView.register(DividerCell.self, forCellReuseIdentifier: DividerCell.identifier)
+        tableView.register(CreditCardCell.self, forCellReuseIdentifier: CreditCardCell.identifier)
         tableView.separatorStyle = .none
     }
     
@@ -83,6 +84,12 @@ class HomeViewTableController: UITableViewController {
                 dividerCell.configure(model: model)
             }
             return cell
+        
+        case .creditCard(let model):
+            if let creditCardCell = cell as? CreditCardCell {
+                creditCardCell.configure(with: model)
+            }
+            return cell
         }
     }
     
@@ -112,6 +119,9 @@ class HomeViewTableController: UITableViewController {
         
         case .divider(_):
             print("Division tapped")
+        
+        case .creditCard(_):
+            print("Credit Card tapped")
         }
     }
 }
