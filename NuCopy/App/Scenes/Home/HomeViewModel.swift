@@ -57,6 +57,15 @@ final class HomeViewModel: HomeViewModelProtocol {
         .divider(
             DividerCellModel.init()
         ),
+        .creditCard(
+            CreditCardCellModel(
+                titleLabel: "Cartão de crédito",
+                chevronSystemName: SFSymbols.chevronRight,
+                currentInvoiceLabel: "Fatura atual",
+                invoiceAmountLabel: "R$ 0,00",
+                availableLimitLabel: "Limite disponível de R$ 3.000,00"
+            )
+        )
     ]
     
     func numberOfRows() -> Int {
