@@ -16,6 +16,7 @@ enum HomeCell {
     case invite(InviteCardCellModel)
     case divider(DividerCellModel)
     case creditCard(CreditCardCellModel)
+    case myCards(MyCardsCellModel)
     
     var cellIdentifier: String {
         switch self {
@@ -27,6 +28,7 @@ enum HomeCell {
         case .invite: return InviteCardTableCell.identifier
         case .divider: return DividerCell.identifier
         case .creditCard: return CreditCardCell.identifier
+        case .myCards: return MyCardsCell.identifier
         }
     }
 }
