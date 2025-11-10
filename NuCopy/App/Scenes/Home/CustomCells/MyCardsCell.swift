@@ -80,7 +80,7 @@ final class MyCardsCell: UITableViewCell {
         titleLabel.text = model.title
         
         if creditCardImageView.image == UIImage(systemName: SFSymbols.creditcard) {
-            creditCardImageView.transform = CGAffineTransformRotate(creditCardImageView.transform, .pi / 2)
+            creditCardImageView.transform = CGAffineTransform(rotationAngle: .pi / 2)
         } else {
             creditCardImageView.transform = .identity
         }
