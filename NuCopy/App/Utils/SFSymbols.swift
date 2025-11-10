@@ -21,4 +21,5 @@ struct SFSymbols {
     static let shippingbox: String = "shippingbox"
     static let listClipboard: String = "list.bullet.clipboard"
     static let wallet: String = "wallet.bifold"
+    static let creditcard: String = "creditcard"
 }

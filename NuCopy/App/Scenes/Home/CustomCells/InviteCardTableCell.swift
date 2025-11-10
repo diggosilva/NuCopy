@@ -97,14 +97,6 @@ final class InviteCardTableCell: UITableViewCell {
         contentView.layoutIfNeeded()
         collectionView.reloadData()
     }
-    
-    override var isHighlighted: Bool {
-        didSet {
-            UIView.animate(withDuration: 0.2) {
-                self.cardView.backgroundColor = self.isHighlighted ? .systemGray3 : .systemGray5
-            }
-        }
-    }
 }
 
 extension InviteCardTableCell: UICollectionViewDataSource {

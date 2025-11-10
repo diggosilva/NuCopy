@@ -16,9 +16,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     private let items: [HomeCell] = [
         .header(
-            HeaderCellModel(
-                imageSystemName: SFSymbols.profileImage
-            )
+            HeaderCellModel(imageSystemName: SFSymbols.profileImage)
         ),
         .name(
             NameCellModel(username: "John")
@@ -28,8 +26,7 @@ final class HomeViewModel: HomeViewModelProtocol {
                 titleLabel: "Conta",
                 chevronSystemName: SFSymbols.chevronRight,
                 descriptionLabel: "Uma conta completa, com função débito, sem tarifa de manutenção e que faz seu dinheiro render.",
-                buttonLabel: "Conhecer"
-            )
+                buttonLabel: "Conhecer")
         ),
         .shortcuts(
             ShortcutCellModel(shortcuts: [
@@ -44,14 +41,13 @@ final class HomeViewModel: HomeViewModelProtocol {
                 moneyImageSystemName: SFSymbols.banknote,
                 titleLabel: "Dinheiro adicional",
                 descriptionLabel: "Opções de crédito disponível",
-                chevronSystemName: SFSymbols.chevronRight,
-            )
+                chevronSystemName: SFSymbols.chevronRight)
         ),
         .invite(
             InviteCardCellModel(inviteItems: [
                 InviteItemModel(title: "*Facilite seus planos futuros:* guarde dinheiro nas Caixinhas", iconSystemName: SFSymbols.shippingbox),
                 InviteItemModel(title: "Pague *boletos no crédito* em até 12x direto pelo app", iconSystemName: SFSymbols.listClipboard),
-                InviteItemModel(title: "Adicione seu *cartão Nubank* nas carteiras digitais ", iconSystemName: SFSymbols.wallet),
+                InviteItemModel(title: "Adicione seu *cartão Nubank* nas carteiras digitais ", iconSystemName: SFSymbols.wallet)
             ])
         ),
         .divider(
@@ -63,9 +59,14 @@ final class HomeViewModel: HomeViewModelProtocol {
                 chevronSystemName: SFSymbols.chevronRight,
                 currentInvoiceLabel: "Fatura atual",
                 invoiceAmountLabel: "R$ 0,00",
-                availableLimitLabel: "Limite disponível de R$ 3.000,00"
-            )
-        )
+                availableLimitLabel: "Limite disponível de R$ 3.000,00")
+        ),
+        .myCards(
+            MyCardsCellModel(iconSystemName: SFSymbols.creditcard, title: "Meus cartões")
+        ),
+        .divider(
+            DividerCellModel.init()
+        ),
     ]
     
     func numberOfRows() -> Int {
