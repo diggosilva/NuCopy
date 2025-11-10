@@ -28,7 +28,9 @@ class HomeViewTableController: UITableViewController {
         tableView.register(InviteCardTableCell.self, forCellReuseIdentifier: InviteCardTableCell.identifier)
         tableView.register(DividerCell.self, forCellReuseIdentifier: DividerCell.identifier)
         tableView.register(CreditCardCell.self, forCellReuseIdentifier: CreditCardCell.identifier)
+        tableView.register(MyCardsCell.self, forCellReuseIdentifier: MyCardsCell.identifier)
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +92,12 @@ class HomeViewTableController: UITableViewController {
                 creditCardCell.configure(with: model)
             }
             return cell
+            
+        case .myCards(let model):
+            if let myCardsCell = cell as? MyCardsCell {
+                myCardsCell.configure(with: model)
+            }
+            return cell
         }
     }
     
@@ -122,6 +130,9 @@ class HomeViewTableController: UITableViewController {
         
         case .creditCard(_):
             print("Credit Card tapped")
+        
+        case .myCards(_):
+            print("My Cards tapped")
         }
     }
 }
