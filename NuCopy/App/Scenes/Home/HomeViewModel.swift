@@ -67,6 +67,16 @@ final class HomeViewModel: HomeViewModelProtocol {
         .divider(
             DividerCellModel.init()
         ),
+        .loan(
+            LoanCellModel(
+                titleLabel: "Empréstimo",
+                chevronSystemName: SFSymbols.chevronRight,
+                loanTitleLabel: "Valor disponível de até",
+                loanAmountLabel: "R$ 10.000,00")
+        ),
+        .divider(
+            DividerCellModel.init()
+        ),
     ]
     
     func numberOfRows() -> Int {
