@@ -14,7 +14,7 @@ final class DividerCell: UITableViewCell {
     private let divider: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemGray5
+        view.backgroundColor = .systemGray6
         return view
     }()
     
