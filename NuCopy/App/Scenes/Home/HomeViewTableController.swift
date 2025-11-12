@@ -30,6 +30,7 @@ class HomeViewTableController: UITableViewController {
         tableView.register(CreditCardCell.self, forCellReuseIdentifier: CreditCardCell.identifier)
         tableView.register(MyCardsCell.self, forCellReuseIdentifier: MyCardsCell.identifier)
         tableView.register(LoanCell.self, forCellReuseIdentifier: LoanCell.identifier)
+        tableView.register(PaymentAssistantCell.self, forCellReuseIdentifier: PaymentAssistantCell.identifier)
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
     }
@@ -105,6 +106,12 @@ class HomeViewTableController: UITableViewController {
                 loanCell.configure(with: model)
             }
             return cell
+            
+        case .paymentAssistent(let model):
+            if let paymentAssistantCell = cell as? PaymentAssistantCell {
+                paymentAssistantCell.configure(with: model)
+            }
+            return cell
         }
     }
     
@@ -143,6 +150,9 @@ class HomeViewTableController: UITableViewController {
         
         case .loan(_):
             print("Loan tapped")
+            
+        case .paymentAssistent(_):
+            print("Payment Assistent tapped")
         }
     }
 }
