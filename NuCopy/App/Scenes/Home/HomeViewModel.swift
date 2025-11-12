@@ -77,6 +77,17 @@ final class HomeViewModel: HomeViewModelProtocol {
         .divider(
             DividerCellModel.init()
         ),
+        .paymentAssistent(
+            PaymentAssistantCellModel(
+                titleLabel: "Planeje suas contas",
+                chevronSystemName: SFSymbols.chevronRight,
+                descriptionLabel: "Acompanhe, pague e programe com a ajuda do Assistente de pagamentos.",
+                buttonLabel: "Acessar"
+            )
+        ),
+        .divider(
+            DividerCellModel.init()
+        ),
     ]
     
     func numberOfRows() -> Int {
