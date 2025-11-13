@@ -88,6 +88,61 @@ final class HomeViewModel: HomeViewModelProtocol {
         .divider(
             DividerCellModel.init()
         ),
+        .discover(
+            DiscoverCardCellModel(
+                titleLabel: "Descubra mais",
+                items: [
+                    DiscoverCardItemModel(
+                        namedImage: "menoresDe18",
+                        title: "Conta pra Menores de 18",
+                        description: "Solicite a conta para seus filhos a partir de 6 anos.",
+                        titleButton: "Começar"
+                    ),
+                    DiscoverCardItemModel(
+                        namedImage: "seguroVida",
+                        title: "Seguro Vida",
+                        description: "Cuide de quem você ama de um jeito simples e que cabe no seu bolso.",
+                        titleButton: "Conhecer"
+                    ),
+                    DiscoverCardItemModel(
+                        namedImage: "nuSeguro",
+                        title: "Área de Seguros do Nu",
+                        description: "Toda proteção para você e para quem você ama num só lugar.",
+                        titleButton: "Conhecer"
+                    ),
+                    DiscoverCardItemModel(
+                        namedImage: "indiqueAmigos",
+                        title: "Indique Nu para os amigos",
+                        description: "Espalhe como é simples estar no controle.",
+                        titleButton: "Conhecer"
+                    ),
+                    DiscoverCardItemModel(
+                        namedImage: "portabilidadeSalario",
+                        title: "Portabilidade de salário",
+                        description: "Liberdade é escolher onde receber seu dinheiro.",
+                        titleButton: "Conhecer"
+                    ),
+                    DiscoverCardItemModel(
+                        namedImage: "applePay",
+                        title: "Apple Pay",
+                        description: "Deixe a carteira em casa e pague com cartão usando só o seu iPhone.",
+                        titleButton: "Conhecer mais"
+                    ),
+                    DiscoverCardItemModel(
+                        namedImage: "nuCel",
+                        title: "Chegou NuCel",
+                        description: "A experiência NuBank, agora em planos de celular.",
+                        titleButton: "Conhecer"
+                    ),
+                    DiscoverCardItemModel(
+                        namedImage: "nuBankPredio",
+                        title: "Termos de uso",
+                        description: "Explicamos o que diz esse documento do NuBank",
+                        titleButton: "Conhecer"
+                    )
+                ]
+            )
+        )
     ]
     
     func numberOfRows() -> Int {
