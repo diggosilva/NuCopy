@@ -31,6 +31,7 @@ class HomeViewTableController: UITableViewController {
         tableView.register(MyCardsCell.self, forCellReuseIdentifier: MyCardsCell.identifier)
         tableView.register(LoanCell.self, forCellReuseIdentifier: LoanCell.identifier)
         tableView.register(PaymentAssistantCell.self, forCellReuseIdentifier: PaymentAssistantCell.identifier)
+        tableView.register(DiscoverCardTableCell.self, forCellReuseIdentifier: DiscoverCardTableCell.identifier)
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
     }
@@ -112,6 +113,13 @@ class HomeViewTableController: UITableViewController {
                 paymentAssistantCell.configure(with: model)
             }
             return cell
+            
+        case .discover(let model):
+            if let discoverCell = cell as? DiscoverCardTableCell {
+                discoverCell.configure(with: model)
+                discoverCell.delegate = self
+            }
+            return cell
         }
     }
     
@@ -153,6 +161,9 @@ class HomeViewTableController: UITableViewController {
             
         case .paymentAssistent(_):
             print("Payment Assistent tapped")
+        
+        case .discover(_):
+            print("Discover tapped")
         }
     }
 }
@@ -176,5 +187,9 @@ extension HomeViewTableController: CellCommonActionsDelegate {
     
     func didSelectInvite(in cell: InviteCardTableCell, at indexPath: IndexPath) {
         print("Invite \(indexPath.item) da Collection tocado na célula \(tableView.indexPath(for: cell)?.row ?? 0)")
+    }
+    
+    func didSelectDiscover(in cell: DiscoverCardTableCell, at indexPath: IndexPath) {
+        print("Discover \(indexPath.item) da Collection tocado na célula \(tableView.indexPath(for: cell)?.row ?? 0)")
     }
 }
