@@ -19,6 +19,7 @@ enum HomeCell {
     case myCards(MyCardsCellModel)
     case loan(LoanCellModel)
     case paymentAssistent(PaymentAssistantCellModel)
+    case discover(DiscoverCardCellModel)
     
     var cellIdentifier: String {
         switch self {
@@ -33,6 +34,7 @@ enum HomeCell {
         case .myCards: return MyCardsCell.identifier
         case .loan: return LoanCell.identifier
         case .paymentAssistent: return PaymentAssistantCell.identifier
+        case .discover: return DiscoverCardTableCell.identifier
         }
     }
 }
