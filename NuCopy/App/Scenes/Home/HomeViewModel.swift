@@ -142,6 +142,9 @@ final class HomeViewModel: HomeViewModelProtocol {
                     )
                 ]
             )
+        ),
+        .rateScreen(
+            RateScreenCellModel(heartIconSystemName: SFSymbols.heart, title: "Avalie esta tela")
         )
     ]
     
