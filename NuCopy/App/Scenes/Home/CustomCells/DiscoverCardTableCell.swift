@@ -53,6 +53,7 @@ final class DiscoverCardTableCell: UITableViewCell {
     
     private func setHierarchy() {
         contentView.addSubviews(titleLabel, collectionView)
+        self.selectionStyle = .none
     }
     
     private func setConstraints() {
