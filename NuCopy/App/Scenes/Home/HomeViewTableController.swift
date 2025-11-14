@@ -32,6 +32,7 @@ class HomeViewTableController: UITableViewController {
         tableView.register(LoanCell.self, forCellReuseIdentifier: LoanCell.identifier)
         tableView.register(PaymentAssistantCell.self, forCellReuseIdentifier: PaymentAssistantCell.identifier)
         tableView.register(DiscoverCardTableCell.self, forCellReuseIdentifier: DiscoverCardTableCell.identifier)
+        tableView.register(RateScreenCell.self, forCellReuseIdentifier: RateScreenCell.identifier)
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
     }
@@ -120,6 +121,12 @@ class HomeViewTableController: UITableViewController {
                 discoverCell.delegate = self
             }
             return cell
+        
+        case .rateScreen(let model):
+            if let rateCell = cell as? RateScreenCell {
+                rateCell.configure(with: model)
+            }
+            return cell
         }
     }
     
@@ -164,6 +171,9 @@ class HomeViewTableController: UITableViewController {
         
         case .discover(_):
             print("Discover tapped")
+        
+        case .rateScreen(_):
+            print("Rate Screen tapped")
         }
     }
 }
