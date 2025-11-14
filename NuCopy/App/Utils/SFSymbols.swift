@@ -13,6 +13,7 @@ struct SFSymbols {
     static let squareGrid2x2: String = "square.grid.2x2"
     static let barcode: String = "barcode"
     static let dollarSign: String = "dollarsign.circle"
+    static let dollarSignFill: String = "dollarsign.circle.fill"
     static let smartphone: String = "smartphone"
     static let questionmarkCircle: String = "questionmark.circle"
     static let checkmarkShield: String = "checkmark.shield"
@@ -22,4 +23,7 @@ struct SFSymbols {
     static let listClipboard: String = "list.bullet.clipboard"
     static let wallet: String = "wallet.bifold"
     static let creditcard: String = "creditcard"
+    static let heart: String = "heart"
+    static let house: String = "house"
+    static let houseFill: String = "house.fill"
 }
