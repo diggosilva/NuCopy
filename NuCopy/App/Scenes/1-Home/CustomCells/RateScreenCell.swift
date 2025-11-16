@@ -62,7 +62,6 @@ final class RateScreenCell: UITableViewCell {
             HStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             HStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -32),
             HStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            HStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
     
