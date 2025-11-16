@@ -95,8 +95,6 @@ final class InviteCardTableCell: UITableViewCell {
     func configure(with items: [InviteItemModel]) {
         self.inviteItems = items
         self.pageControl.numberOfPages = items.count
-        contentView.setNeedsLayout()
-        contentView.layoutIfNeeded()
         self.currentIndex = 0
         collectionView.reloadData()
         startAutoScroll()
