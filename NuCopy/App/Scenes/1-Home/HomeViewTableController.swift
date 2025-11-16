@@ -176,6 +176,18 @@ class HomeViewTableController: UITableViewController {
             print("Rate Screen tapped")
         }
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let inviteCell = cell as? InviteCardTableCell {
+            inviteCell.startAutoScroll()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let inviteCell = cell as? InviteCardTableCell {
+            inviteCell.stopAutoScroll()
+        }
+    }
 }
 
 extension HomeViewTableController: CellCommonActionsDelegate {
