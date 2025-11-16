@@ -62,14 +62,14 @@ final class LoanCell: UITableViewCell {
     }
     
     private func setHierarchy() {
-        addSubviews(HStack, loanTitleLabel, loanAmountLabel)
+        contentView.addSubviews(HStack, loanTitleLabel, loanAmountLabel)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            HStack.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            HStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            HStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            HStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            HStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
+            HStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
             
             loanTitleLabel.topAnchor.constraint(equalTo: HStack.bottomAnchor, constant: 16),
             loanTitleLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
@@ -78,7 +78,7 @@ final class LoanCell: UITableViewCell {
             loanAmountLabel.topAnchor.constraint(equalTo: loanTitleLabel.bottomAnchor, constant: 8),
             loanAmountLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
             loanAmountLabel.trailingAnchor.constraint(equalTo: HStack.trailingAnchor),
-            loanAmountLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            loanAmountLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
     
