@@ -38,7 +38,8 @@ final class NameCell: UITableViewCell {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            grettingLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            grettingLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            grettingLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             grettingLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             grettingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
         ])

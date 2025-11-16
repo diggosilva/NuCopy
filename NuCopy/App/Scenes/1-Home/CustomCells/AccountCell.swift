@@ -67,14 +67,14 @@ class AccountCell: UITableViewCell {
     }
     
     private func setHierarchy() {
-        addSubviews(HStack, descriptionLabel, buttonLabel)
+        contentView.addSubviews(HStack, descriptionLabel, buttonLabel)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            HStack.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            HStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            HStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            HStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            HStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
+            HStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
             
             descriptionLabel.topAnchor.constraint(equalTo: HStack.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
@@ -82,7 +82,7 @@ class AccountCell: UITableViewCell {
             
             buttonLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
             buttonLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
-            buttonLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            buttonLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
         ])
     }
     

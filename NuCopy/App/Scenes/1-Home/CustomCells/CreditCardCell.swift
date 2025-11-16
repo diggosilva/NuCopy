@@ -70,14 +70,14 @@ final class CreditCardCell: UITableViewCell {
     }
     
     private func setHierarchy() {
-        addSubviews(HStack, currentInvoiceLabel, invoiceAmountLabel, availableLimitLabel)
+        contentView.addSubviews(HStack, currentInvoiceLabel, invoiceAmountLabel, availableLimitLabel)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            HStack.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            HStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            HStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            HStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            HStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
+            HStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
             
             currentInvoiceLabel.topAnchor.constraint(equalTo: HStack.bottomAnchor, constant: 16),
             currentInvoiceLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
@@ -90,7 +90,7 @@ final class CreditCardCell: UITableViewCell {
             availableLimitLabel.topAnchor.constraint(equalTo: invoiceAmountLabel.bottomAnchor, constant: 16),
             availableLimitLabel.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
             availableLimitLabel.trailingAnchor.constraint(equalTo: HStack.trailingAnchor),
-            availableLimitLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            availableLimitLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
         ])
     }
     
