@@ -12,6 +12,8 @@ final class InviteCardTableCell: UITableViewCell {
     static let identifier: String = "InviteCardTableCell"
     
     private var inviteItems: [InviteItemModel] = []
+    private var autoScrollTimer: Timer?
+    private var currentIndex: Int = 0
     
     weak var delegate: CellCommonActionsDelegate?
     
@@ -95,7 +97,37 @@ final class InviteCardTableCell: UITableViewCell {
         self.pageControl.numberOfPages = items.count
         contentView.setNeedsLayout()
         contentView.layoutIfNeeded()
+        self.currentIndex = 0
         collectionView.reloadData()
+        startAutoScroll()
+    }
+    
+    func startAutoScroll() {
+        stopAutoScroll()
+        guard inviteItems.count > 1 else { return }
+        
+        autoScrollTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] _ in
+            self?.scrollToNextPage()
+        }
+    }
+    
+    private func scrollToNextPage() {
+        guard !inviteItems.isEmpty else { return }
+        
+        currentIndex = (currentIndex + 1) % inviteItems.count
+        let indexPath = IndexPath(item: currentIndex, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        pageControl.currentPage = currentIndex
+    }
+    
+    func stopAutoScroll() {
+        autoScrollTimer?.invalidate()
+        autoScrollTimer = nil
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stopAutoScroll()
     }
 }
 
