@@ -92,7 +92,7 @@ final class InviteCardTableCell: UITableViewCell {
         ])
     }
     
-    func configure(with items: [InviteItemModel]) {
+    func configure(items: [InviteItemModel]) {
         self.inviteItems = items
         self.pageControl.numberOfPages = items.count
         self.currentIndex = 0

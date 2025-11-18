@@ -94,7 +94,7 @@ final class CreditCardCell: UITableViewCell {
         ])
     }
     
-    func configure(with model: CreditCardCellModel) {
+    func configure(model: CreditCardCellModel) {
         titleLabel.text = model.titleLabel
         chevronImageView.image = UIImage(systemName: model.chevronSystemName)
         currentInvoiceLabel.text = model.currentInvoiceLabel

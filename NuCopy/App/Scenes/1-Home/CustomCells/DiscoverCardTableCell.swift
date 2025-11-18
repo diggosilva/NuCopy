@@ -70,7 +70,7 @@ final class DiscoverCardTableCell: UITableViewCell {
         ])
     }
     
-    func configure(with model: DiscoverCardCellModel) {
+    func configure(model: DiscoverCardCellModel) {
         titleLabel.text = model.titleLabel
         self.discoverItems = model.items
         collectionView.reloadData()
@@ -85,7 +85,7 @@ extension DiscoverCardTableCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscoverCardCollectionCell.identifier, for: indexPath) as? DiscoverCardCollectionCell else { return UICollectionViewCell() }
         let item = discoverItems[indexPath.item]
-        cell.configure(with: item)
+        cell.configure(model: item)
         return cell
     }
 }

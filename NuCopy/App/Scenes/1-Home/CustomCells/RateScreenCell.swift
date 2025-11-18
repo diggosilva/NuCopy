@@ -65,7 +65,7 @@ final class RateScreenCell: UITableViewCell {
         ])
     }
     
-    func configure(with model: RateScreenCellModel) {
+    func configure(model: RateScreenCellModel) {
         heartIconImageView.image = UIImage(systemName: SFSymbols.heart)
         titleLabel.text = model.title
     }

@@ -82,7 +82,7 @@ final class LoanCell: UITableViewCell {
         ])
     }
     
-    func configure(with model: LoanCellModel) {
+    func configure(model: LoanCellModel) {
         titleLabel.text = model.titleLabel
         chevronImageView.image = UIImage(systemName: model.chevronSystemName)
         loanTitleLabel.text = model.loanTitleLabel

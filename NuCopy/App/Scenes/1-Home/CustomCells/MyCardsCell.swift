@@ -75,7 +75,7 @@ final class MyCardsCell: UITableViewCell {
         ])
     }
     
-    func configure(with model: MyCardsCellModel) {
+    func configure(model: MyCardsCellModel) {
         creditCardImageView.image = UIImage(systemName: model.iconSystemName)
         titleLabel.text = model.title
         
