@@ -45,136 +45,14 @@ class HomeViewTableController: UITableViewController {
         let cellType = viewModel.cellModelForRow(at: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier, for: indexPath)
         
-        switch cellType {
-        case .header(let model):
-            if let headerCell = cell as? HeaderCell {
-                headerCell.configure(model: model)
-                headerCell.delegate = self
-            }
-            return cell
-
-        case .name(let model):
-            if let nameCell = cell as? NameCell {
-                nameCell.configure(model: model)
-            }
-            return cell
-            
-        case .account(let model):
-            if let accountCell = cell as? AccountCell {
-                accountCell.configure(with: model)
-            }
-            return cell
-            
-        case .shortcuts(let model):
-            if let shortcutCell = cell as? ShortcutTableCell {
-                shortcutCell.configure(with: model.shortcuts)
-                shortcutCell.delegate = self
-            }
-            return cell
-            
-        case .extraMoney(let model):
-            if let extraMoneyCell = cell as? ExtraMoneyCell {
-                extraMoneyCell.configure(model: model)
-            }
-            return cell
-            
-        case .invite(let model):
-            if let inviteCell = cell as? InviteCardTableCell {
-                inviteCell.configure(with: model.inviteItems)
-                inviteCell.delegate = self
-            }
-            return cell
-            
-        case .divider(let model):
-            if let dividerCell = cell as? DividerCell {
-                dividerCell.configure(model: model)
-            }
-            return cell
-        
-        case .creditCard(let model):
-            if let creditCardCell = cell as? CreditCardCell {
-                creditCardCell.configure(with: model)
-            }
-            return cell
-            
-        case .myCards(let model):
-            if let myCardsCell = cell as? MyCardsCell {
-                myCardsCell.configure(with: model)
-            }
-            return cell
-            
-        case .loan(let model):
-            if let loanCell = cell as? LoanCell {
-                loanCell.configure(with: model)
-            }
-            return cell
-            
-        case .paymentAssistent(let model):
-            if let paymentAssistantCell = cell as? PaymentAssistantCell {
-                paymentAssistantCell.configure(with: model)
-            }
-            return cell
-            
-        case .discover(let model):
-            if let discoverCell = cell as? DiscoverCardTableCell {
-                discoverCell.configure(with: model)
-                discoverCell.delegate = self
-            }
-            return cell
-        
-        case .rateScreen(let model):
-            if let rateCell = cell as? RateScreenCell {
-                rateCell.configure(with: model)
-            }
-            return cell
-        }
+        cellType.configure(cell: cell)
+        cellType.attachDelegates(to: cell, controller: self)
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let cellType = viewModel.cellModelForRow(at: indexPath.row)
-        
-        switch cellType {
-        case .header(_):
-            print("Header tapped")
-            
-        case .name(_):
-            print("Name tapped")
-            
-        case .account(_):
-            print("Account tapped")
-            
-        case .shortcuts(_):
-            print("TABLE CELL tapped")
-            
-        case .extraMoney(_):
-            print("Extra Money tapped")
-        
-        case .invite(_):
-            print("Invite tapped")
-        
-        case .divider(_):
-            print("Division tapped")
-        
-        case .creditCard(_):
-            print("Credit Card tapped")
-        
-        case .myCards(_):
-            print("My Cards tapped")
-        
-        case .loan(_):
-            print("Loan tapped")
-            
-        case .paymentAssistent(_):
-            print("Payment Assistent tapped")
-        
-        case .discover(_):
-            print("Discover tapped")
-        
-        case .rateScreen(_):
-            print("Rate Screen tapped")
-        }
+        viewModel.cellModelForRow(at: indexPath.row).didSelect()
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
