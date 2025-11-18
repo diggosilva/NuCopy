@@ -99,7 +99,7 @@ final class ShortcutCollectionCell: UICollectionViewCell {
         ])
     }
     
-    func configure(with model: ShortcutItemModel) {
+    func configure(model: ShortcutItemModel) {
         shortcutLabel.text = model.title
         shortcutImageView.image = UIImage(systemName: model.imageName)
         

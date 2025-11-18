@@ -59,7 +59,7 @@ final class ShortcutTableCell: UITableViewCell {
         ])
     }
     
-    func configure(with shortcuts: [ShortcutItemModel]) {
+    func configure(shortcuts: [ShortcutItemModel]) {
         self.shortcuts = shortcuts
         collectionView.isScrollEnabled = shortcuts.count > 4
         collectionView.reloadData()
@@ -74,7 +74,7 @@ extension ShortcutTableCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShortcutCollectionCell.identifier, for: indexPath) as? ShortcutCollectionCell else { return UICollectionViewCell() }
         let shortcut = shortcuts[indexPath.item]
-        cell.configure(with: shortcut)
+        cell.configure(model: shortcut)
         return cell
     }
 }

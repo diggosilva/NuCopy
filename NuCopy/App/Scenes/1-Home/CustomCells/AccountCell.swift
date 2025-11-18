@@ -86,7 +86,7 @@ class AccountCell: UITableViewCell {
         ])
     }
     
-    func configure(with model: AccountCellModel) {
+    func configure(model: AccountCellModel) {
         titleLabel.text = model.titleLabel
         chevronImageView.image = UIImage(systemName: model.chevronSystemName)
         descriptionLabel.text = model.descriptionLabel

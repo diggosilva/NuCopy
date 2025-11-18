@@ -86,7 +86,7 @@ final class DiscoverCardCollectionCell: UICollectionViewCell {
         ])
     }
     
-    func configure(with model: DiscoverCardItemModel) {
+    func configure(model: DiscoverCardItemModel) {
         imageView.image = UIImage(named: model.namedImage)
         titleLabel.text = model.title
         descriptionLabel.text = model.description

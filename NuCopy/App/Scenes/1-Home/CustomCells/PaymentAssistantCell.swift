@@ -85,7 +85,7 @@ final class PaymentAssistantCell: UITableViewCell {
         ])
     }
     
-    func configure(with model: PaymentAssistantCellModel) {
+    func configure(model: PaymentAssistantCellModel) {
         titleLabel.text = model.titleLabel
         chevronImageView.image = UIImage(systemName: model.chevronSystemName)
         descriptionLabel.text = model.descriptionLabel
