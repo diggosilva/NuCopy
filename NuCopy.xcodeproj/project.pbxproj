@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		924875082ECDDA99007E571A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9224F97A2EB3AA70002B8DEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9224F9812EB3AA70002B8DEA;
+			remoteInfo = NuCopy;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		9224F9822EB3AA70002B8DEA /* NuCopy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NuCopy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		924875042ECDDA99007E571A /* NuCopyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NuCopyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -29,10 +40,22 @@
 			path = NuCopy;
 			sourceTree = "<group>";
 		};
+		924875052ECDDA99007E571A /* NuCopyTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NuCopyTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9224F97F2EB3AA70002B8DEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		924875012ECDDA99007E571A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				9224F9842EB3AA70002B8DEA /* NuCopy */,
+				924875052ECDDA99007E571A /* NuCopyTests */,
 				9224F9832EB3AA70002B8DEA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				9224F9822EB3AA70002B8DEA /* NuCopy.app */,
+				924875042ECDDA99007E571A /* NuCopyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +108,29 @@
 			productReference = 9224F9822EB3AA70002B8DEA /* NuCopy.app */;
 			productType = "com.apple.product-type.application";
 		};
+		924875032ECDDA99007E571A /* NuCopyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9248750C2ECDDA99007E571A /* Build configuration list for PBXNativeTarget "NuCopyTests" */;
+			buildPhases = (
+				924875002ECDDA99007E571A /* Sources */,
+				924875012ECDDA99007E571A /* Frameworks */,
+				924875022ECDDA99007E571A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				924875092ECDDA99007E571A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				924875052ECDDA99007E571A /* NuCopyTests */,
+			);
+			name = NuCopyTests;
+			packageProductDependencies = (
+			);
+			productName = NuCopyTests;
+			productReference = 924875042ECDDA99007E571A /* NuCopyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +143,10 @@
 				TargetAttributes = {
 					9224F9812EB3AA70002B8DEA = {
 						CreatedOnToolsVersion = 26.0.1;
+					};
+					924875032ECDDA99007E571A = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 9224F9812EB3AA70002B8DEA;
 					};
 				};
 			};
@@ -113,12 +165,20 @@
 			projectRoot = "";
 			targets = (
 				9224F9812EB3AA70002B8DEA /* NuCopy */,
+				924875032ECDDA99007E571A /* NuCopyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9224F9802EB3AA70002B8DEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		924875022ECDDA99007E571A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -135,7 +195,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		924875002ECDDA99007E571A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		924875092ECDDA99007E571A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9224F9812EB3AA70002B8DEA /* NuCopy */;
+			targetProxy = 924875082ECDDA99007E571A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9224F9962EB3AA71002B8DEA /* Debug */ = {
@@ -319,6 +394,48 @@
 			};
 			name = Release;
 		};
+		9248750A2ECDDA99007E571A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57HYQW6DAG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diggosilva.NuCopyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NuCopy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NuCopy";
+			};
+			name = Debug;
+		};
+		9248750B2ECDDA99007E571A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57HYQW6DAG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diggosilva.NuCopyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NuCopy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NuCopy";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -336,6 +453,15 @@
 			buildConfigurations = (
 				9224F9962EB3AA71002B8DEA /* Debug */,
 				9224F9972EB3AA71002B8DEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9248750C2ECDDA99007E571A /* Build configuration list for PBXNativeTarget "NuCopyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9248750A2ECDDA99007E571A /* Debug */,
+				9248750B2ECDDA99007E571A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
