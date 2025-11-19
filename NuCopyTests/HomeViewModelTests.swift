@@ -10,6 +10,8 @@ import XCTest
 
 class HomeViewModelTests: XCTestCase {
     
+    static let expectedItemsCount = 16
+    
     var viewModel: HomeViewModel!
     
     override func setUp() {
@@ -23,7 +25,7 @@ class HomeViewModelTests: XCTestCase {
     }
     
     func testNumberOfRowsShouldReturnCorrectCount() {
-        XCTAssertEqual(viewModel.numberOfRows(), 16, "O número de células esperadas mudou.")
+        XCTAssertEqual(viewModel.numberOfRows(), Self.expectedItemsCount, "O número de células esperadas mudou.")
     }
     
     func testFirstCellShouldBeHeader() {
