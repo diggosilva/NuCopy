@@ -87,7 +87,7 @@ extension HomeCell {
 }
 
 extension HomeCell {
-    func attachDelegates(to cell: UITableViewCell, controller: HomeViewTableController) {
+    func attachDelegates(to cell: UITableViewCell, controller: CellCommonActionsDelegate) {
         switch self {
         case .header: (cell as? HeaderCell)?.delegate = controller
         case .shortcuts: (cell as? ShortcutTableCell)?.delegate = controller
