@@ -10,11 +10,29 @@ import UIKit
 class HomeViewTableController: UITableViewController {
     
     private let viewModel = HomeViewModel()
+    private var refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .roxinho
         configureTableView()
+        configureRefreshControl()
+    }
+    
+    private func configureRefreshControl() {
+        refresh.tintColor = .white
+        refresh.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+        
+        self.refreshControl = refresh
+    }
+    
+    @objc private func didPullToRefresh() {
+        viewModel.reloadData { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
+            }
+        }
     }
     
     private func configureTableView() {

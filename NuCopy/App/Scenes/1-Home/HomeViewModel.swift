@@ -10,6 +10,7 @@ import Foundation
 protocol HomeViewModelProtocol {
     func numberOfRows() -> Int
     func cellModelForRow(at indexPath: Int) -> HomeCell
+    func reloadData(completion: @escaping () -> Void)
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
@@ -154,5 +155,12 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     func cellModelForRow(at indexPath: Int) -> HomeCell {
         return items[indexPath]
+    }
+    
+    func reloadData(completion: @escaping () -> Void) {
+        // Simulando uma chamada de rede ou atualização de dados
+        DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) {
+            completion()
+        }
     }
 }
